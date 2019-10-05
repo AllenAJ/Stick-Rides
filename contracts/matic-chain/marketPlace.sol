@@ -53,7 +53,7 @@ contract marketPlace {
     }
     
     function bid(uint _tokenId, uint _price, address _NFTAddress)public {
-       // AuctionData memory auctionData;
+        //AuctionData storage auctionData;
         auctionData = auctionByTokenId[_NFTAddress][_tokenId];
         require(auctionData.currentPrice < _price, "Bid is lower than the current price");
         auctionData.currentPrice = _price;
@@ -62,21 +62,25 @@ contract marketPlace {
     }
     //id, price, lastBidder, NFTAddress, endTime, isValid
     function getData(uint _tokenId, address _NFTAddress)public view returns(uint, uint, address, address, uint, bool){
-        AuctionData memory auctionData = auctionByTokenId[_NFTAddress][_tokenId];
-        return (auctionData.tokenId,
-            auctionData.currentPrice,
-            auctionData.lastBidder,
-            auctionData.NFTAddress,
-            auctionData.endTime,
-            auctionData.isValid
-            
+    //    AuctionData memory auctionData = auctionByTokenId[_NFTAddress][_tokenId];
+        
+        return (
+            auctionByTokenId[_NFTAddress][_tokenId].tokenId,
+            auctionByTokenId[_NFTAddress][_tokenId].currentPrice,
+            auctionByTokenId[_NFTAddress][_tokenId].lastBidder,
+            auctionByTokenId[_NFTAddress][_tokenId].NFTAddress,
+            auctionByTokenId[_NFTAddress][_tokenId].endTime,
+            auctionByTokenId[_NFTAddress][_tokenId].isValid
             );
     }
     
     function checkBidStatus(address _NFTAddress, uint _tokenId) public {
         NFT = NFTContract(_NFTAddress);
         ERC20 = ERC20Contract(ERC20Address);
-        AuctionData memory auctionData = auctionByTokenId[_NFTAddress][_tokenId];
+        //AuctionData storage 
+        auctionData = auctionByTokenId[_NFTAddress][_tokenId];
+        
+        
         if(auctionData.endTime < now){ // auction ended
             auctionData.isValid = false;
             auctionData.currentOwner = auctionData.lastBidder;
