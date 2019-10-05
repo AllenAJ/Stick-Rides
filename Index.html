@@ -20,40 +20,20 @@
 				window.web3 = new Web3(ethereum)
 				try{
 					await ethereum.enable()
+					//console.log(await window.web3.getAccounts())
+					//console.log(await web3.eth.accounts[0])
+					console.log(await window.web3.eth.getAccounts())
 				}catch(err){
 					console.log(err)
 				}
 			}else if(window.web3){
-				console.log(window.Web3)
+				//console.log(window.Web3)
 				window.web3 = new Web3(Web3.currentProvider)
-				console.log(window.web3)
-				console.log(await window.web3.eth.getAccounts())
+				//console.log(window.web3)
+				//console.log(await window.web3.eth.getAccounts())
 			}
 			})
 
-			async function test3(){
-				if(window.ethereum){
-					console.log('window.ethereum')
-				window.web3 = new Web3(ethereum)
-				try{
-					await ethereum.enable()
-				}catch(err){
-					console.log(err)
-				}
-			}else if(window.web3){
-				console.log("web3")
-				window.web3 = new Web3(Web3.currentProvider)
-				console.log(await window.web3.eth.accounts[0])
-			}
-			}
-			//test3()
-
-			function test4(){
-				let Web3 = require('web3')
-			window.web3 = new Web3(window.Web3.currentProvider)
-			console.log(web3.eth.accounts[0])
-			}
-			//test4()
 			
 			
 			
