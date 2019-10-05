@@ -7,8 +7,93 @@
 		html, body { height:100%; background-color: #cccccc;}
 		body { margin:0; padding:0; overflow:hidden; }
 		#flashContent { width:100%; height:100%; }
-		</style>
+		</style> 
+		<script type="text/javascript" src="./web3.js">
+			
+		</script>
 		<script>
+			
+			window.addEventListener('load',async()=>{
+			//	console.log(web3.currentProvider)
+				if(window.ethereum){
+					console.log('window.ethereum')
+				window.web3 = new Web3(ethereum)
+				try{
+					await ethereum.enable()
+				}catch(err){
+					console.log(err)
+				}
+			}else if(window.web3){
+				console.log(window.Web3)
+				window.web3 = new Web3(Web3.currentProvider)
+				console.log(window.web3)
+				console.log(await window.web3.eth.getAccounts())
+			}
+			})
+
+			async function test3(){
+				if(window.ethereum){
+					console.log('window.ethereum')
+				window.web3 = new Web3(ethereum)
+				try{
+					await ethereum.enable()
+				}catch(err){
+					console.log(err)
+				}
+			}else if(window.web3){
+				console.log("web3")
+				window.web3 = new Web3(Web3.currentProvider)
+				console.log(await window.web3.eth.accounts[0])
+			}
+			}
+			//test3()
+
+			function test4(){
+				let Web3 = require('web3')
+			window.web3 = new Web3(window.Web3.currentProvider)
+			console.log(web3.eth.accounts[0])
+			}
+			//test4()
+			
+			
+			
+			
+			/* async function setProvider() {
+  // TODO: get injected Metamask Object and create Web3 instance
+  let metamaskWeb3
+  if (window.ethereum) {
+    	metamaskWeb3 = new Web3(ethereum);
+    try {
+      // Request account access if needed
+      await ethereum.enable();
+    } catch (error) {
+      // User denied account access...
+    }
+  }
+  else if (window.web3) {
+    metamaskWeb3 = new Web3(web3.currentProvider);
+  }
+  account = await metamaskWeb3.eth.getAccounts()
+  console.log(account)
+
+}
+//setProvider()
+			var address;
+			//test()
+			console.log(window.Web3)
+			
+    		let metamaskWeb3 = new Web3(Web3.currentProvider);
+			console.log(metamaskWeb3)
+			console.log(await metamaskWeb3.eth.getAccounts())
+			//let web3 = window.Web3(window.Web3.currentProvider)
+			//console.log(web3)
+			
+			async function test(){
+				console.log(await metamaskWeb3.eth.getAccounts())
+				//await window.ethereum.enable()
+
+			}test() */
+			
 	    function displayAlert(message)
 	    {
 	      window.alert(message);
