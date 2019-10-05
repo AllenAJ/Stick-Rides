@@ -35,11 +35,11 @@ contract marketPlace {
     event AuctionEnded(address _NFTAddress, uint _tokenId, address _newOwner, uint _price);
     
     constructor()public{}
-    
+    AuctionData auctionData;
     //Check whether the user has the particular ERC721 token[backend]
     function createAuction(uint _tokenId, uint _startingPrice, uint _endingPrice, address _NFTContractAddress,
     uint _endTimeInHours)public {
-        AuctionData memory auctionData;
+        
         auctionData.tokenId = _tokenId;
         auctionData.startingPrice = _startingPrice;
         auctionData.endingPrice = _endingPrice;
@@ -53,7 +53,7 @@ contract marketPlace {
     }
     
     function bid(uint _tokenId, uint _price, address _NFTAddress)public {
-        AuctionData memory auctionData;
+       // AuctionData memory auctionData;
         auctionData = auctionByTokenId[_NFTAddress][_tokenId];
         require(auctionData.currentPrice < _price, "Bid is lower than the current price");
         auctionData.currentPrice = _price;
