@@ -1,0 +1,41 @@
+<html>
+    <head>
+            <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+            crossorigin="anonymous"></script>
+        <script>
+
+const socket = new WebSocket('ws://10.2.88.162:22000/');
+
+// Connection opened
+socket.addEventListener('open', function (event) {
+    console.log('on Open')
+    socket.send('Hello Server!');
+});
+
+// Listen for messages
+socket.addEventListener('message', function (event) {
+    console.log('onMessage')
+    console.log('Message from server ', event.data);
+});
+
+socket.addEventListener('connection', function (event) {
+    console.log('onNewConnection')
+    console.log('Message from server ', event.data);
+});
+
+function send(message){
+    socket.send(message)
+}
+            </script>
+    </head>
+
+    <body>
+        <input type="text" id='msg'>
+        <input type="button" id='send' name='send' onclick="send(document.getElementById('msg').value)">
+        <script>
+        
+        </script>
+    </body>
+</html>
