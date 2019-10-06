@@ -8,6 +8,8 @@
 		body { margin:0; padding:0; overflow:hidden; }
 		#flashContent { width:100%; height:100%; }
 		</style>
+		<script type="text/javascript" src="./jquery.js">
+		</script>
 		<script type="text/javascript" src="./web3.js">
 		</script>
 		<script type="text/javascript" src="./userDataABI.js">
@@ -47,7 +49,14 @@
 			function getMyVar()
 		     {
 		         return userAddress[0];
-		     }
+			 }
+			   function getMyVar2(){
+				 let result2 = checkFirstTimeLogin(userAddress[0]);
+				 setTimeout(()=>result2, 4000)
+				 console.log(result2+":testing")
+				//return(result2+"send val");
+				return result2
+			 }
 				 function getMyVar1()
 	 		     {
 	 		         return("lol");

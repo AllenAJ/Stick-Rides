@@ -1,30 +1,18 @@
-window.userDataAddress = "0xc95d301Bf873b1162d32E16c71BeA99AAd826be2"
+window.userDataAddress = "0x0c6e8C51C14E99B5ec8f79D8Ec0390f28b9d2d62"
 window.userDataABI = [
 	{
-		"constant": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "testAddr",
+		"outputs": [
 			{
-				"name": "_name",
+				"name": "",
 				"type": "string"
 			}
 		],
-		"name": "registerUser",
-		"outputs": [],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"name": "_userAddress",
-				"type": "address"
-			}
-		],
-		"name": "userRegistered",
-		"type": "event"
 	},
 	{
 		"constant": true,
@@ -38,11 +26,25 @@ window.userDataABI = [
 		"outputs": [
 			{
 				"name": "",
-				"type": "bool"
+				"type": "uint256"
 			}
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			}
+		],
+		"name": "registerUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -68,17 +70,15 @@ window.userDataABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "testAddr",
-		"outputs": [
+		"anonymous": false,
+		"inputs": [
 			{
-				"name": "",
-				"type": "string"
+				"indexed": false,
+				"name": "_userAddress",
+				"type": "address"
 			}
 		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
+		"name": "userRegistered",
+		"type": "event"
 	}
 ]
