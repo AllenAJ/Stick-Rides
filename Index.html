@@ -9,22 +9,15 @@
 		#flashContent { width:100%; height:100%; }
 		</style>
 		<script type="text/javascript" src="./web3.js">
-		</script>
-		<script type="text/javascript" src="./userDataABI.js">
-		</script>
-		<script type="text/javascript" src="./userData.js">
 
 		</script>
 		<script>
 			let userAddress ;
-			let userDataContractAddress = ""
-
 			window.addEventListener('load',async()=>{
 			//	console.log(web3.currentProvider)
 				if(window.ethereum){
 					console.log('window.ethereum')
 				window.web3 = new Web3(ethereum)
-				
 				try{
 					await ethereum.enable()
 					//console.log(await window.web3.getAccounts())
@@ -32,7 +25,6 @@
 					userAddress = await window.web3.eth.getAccounts()
 					console.log(userAddress[0])
 					console.log(await window.web3.eth.getAccounts())
-					checkFirstTimeLogin(userAddress[0])
 				}catch(err){
 					console.log(err)
 				}
@@ -55,12 +47,16 @@
 	    function displayAlert(message)
 	    {
 	      window.alert(message);
-	      console.log(5 + 6);
 	    }
-	    function displayCurrentTime()
+			function ReadScore(message)
 	    {
-	    var date = new Date();
-	    return date.toLocaleTimeString();
+	      var score = message;
+				console.log(score);
+	    }
+			function ReadCoin(message)
+	    {
+	      var coin = message;
+				console.log(coin);
 	    }
 	  </script>
 	</head>
