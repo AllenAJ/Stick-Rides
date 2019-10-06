@@ -1,18 +1,48 @@
-window.userDataAddress = "0x0c6e8C51C14E99B5ec8f79D8Ec0390f28b9d2d62"
-window.userDataABI = [
+window.userDataAddress = "0x9Cd546be084f016781b0ccc735046c6B812D61e9"//"0xbbf289d846208c16edc8474705c748aff07732db"
+window.userDataABI =[
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "testAddr",
-		"outputs": [
+		"constant": false,
+		"inputs": [
 			{
-				"name": "",
+				"name": "_name",
 				"type": "string"
 			}
 		],
+		"name": "registerUser",
+		"outputs": [],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_balance",
+				"type": "uint256"
+			},
+			{
+				"name": "_score",
+				"type": "uint256"
+			}
+		],
+		"name": "updateUserData",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "_userAddress",
+				"type": "address"
+			}
+		],
+		"name": "userRegistered",
+		"type": "event"
 	},
 	{
 		"constant": true,
@@ -34,17 +64,26 @@ window.userDataABI = [
 		"type": "function"
 	},
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [
 			{
-				"name": "_name",
-				"type": "string"
+				"name": "_user",
+				"type": "address"
 			}
 		],
-		"name": "registerUser",
-		"outputs": [],
+		"name": "getUserData",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -70,15 +109,17 @@ window.userDataABI = [
 		"type": "function"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
+		"constant": true,
+		"inputs": [],
+		"name": "testAddr",
+		"outputs": [
 			{
-				"indexed": false,
-				"name": "_userAddress",
-				"type": "address"
+				"name": "",
+				"type": "string"
 			}
 		],
-		"name": "userRegistered",
-		"type": "event"
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
